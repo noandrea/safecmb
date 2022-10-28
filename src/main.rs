@@ -2,6 +2,7 @@ use bip39::{Language, Mnemonic};
 use rand::prelude::SliceRandom;
 use rand::{thread_rng, Rng};
 use std::collections::HashMap;
+mod render;
 
 fn main() {
     // generate the mnemonic
@@ -29,6 +30,13 @@ fn main() {
             mnemonic_out[x],
         );
     }
+
+    let filename = format!(
+        "safecmb-{}.pdf",
+        chrono::Utc::now().to_rfc3339_opts(chrono::SecondsFormat::Secs, false)
+    );
+
+    render::render_pdf(&filename, &dseq, &mnemonic_out);
 }
 
 fn safecmb(mnemonic: &Vec<String>) -> (Vec<usize>, Vec<String>) {
