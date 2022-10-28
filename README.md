@@ -25,5 +25,26 @@ The positive aspect of this approach is that in a case where an attacker has had
 
 The negative aspect is that two pieces of information need to be secured. It is also important to consider what is the actual risk of a mnemonic backup being exposed.
 
+
 ### Future work 
 The security of the approach can be further improved by deriving a Bitcoin or Ethereum account from the `M'` mnemonic, to top it up with some small amounts and monitor its balance. If the balance changes it will indicate that the mnemonic backup has been compromised.
+
+
+### Usage 
+
+to run `safecmb` first compile the binary by running:
+
+```
+cargo build --release
+```
+
+then run 
+
+```
+./target/release/safecmb
+```
+
+the command will generate a pdf file containing your mnemonic phrase and decoding sequence as shown in the following example:
+
+![](example.png)
+
